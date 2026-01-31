@@ -1,4 +1,4 @@
-/* Perbaikan Utama untuk Layout yang Lebih Kompak */
+/* PERBAIKAN HEADER - Posisi Lebih Baik & Tidak Menutupi Konten */
 
 :root {
     --primary-black: #0A0A0A;
@@ -12,8 +12,8 @@
     --text-light-gray: #999999;
     --gradient-red: linear-gradient(135deg, #FF2E2E 0%, #FF0033 100%);
     --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
-    --shadow-red: 0 0 30px rgba(255, 46, 46, 0.3);
-    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-red: 0 0 20px rgba(255, 46, 46, 0.2);
+    --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -24,22 +24,135 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 14px; /* Ukuran font dasar lebih kecil */
+    font-size: 14px;
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--primary-black);
     color: var(--text-white);
-    line-height: 1.5; /* Line height lebih ketat */
+    line-height: 1.5;
     font-weight: 400;
-    font-size: 1rem; /* Menggunakan rem */
+    font-size: 1rem;
     overflow-x: hidden;
     letter-spacing: -0.01em;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 70px; /* Padding untuk header fixed */
+}
+
+/* HEADER BARU - Sangat Kompak & Tidak Menutupi */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 46, 46, 0.1);
+    padding: 8px 0; /* SANGAT kecil */
+    height: 50px; /* SANGAT pendek */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+/* LOGO - Kiri Atas, Sangat Kecil */
+.logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logo-brand:hover {
+    transform: scale(1.02);
+}
+
+.logo-icon {
+    width: 28px; /* SANGAT kecil */
+    height: 28px;
+    background: var(--gradient-red);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* SANGAT kecil */
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 46, 46, 0.3);
+}
+
+.logo-text {
+    font-size: 0.9rem; /* SANGAT kecil */
+    font-weight: 800;
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.3px;
+}
+
+/* VISITOR COUNTER - Kanan Atas, Sangat Kecil */
+.visitor-counter {
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 6px;
+    padding: 5px 10px; /* SANGAT kecil */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 46, 46, 0.15);
+    transition: all 0.2s ease;
+    height: 32px; /* SANGAT pendek */
+}
+
+.visitor-counter:hover {
+    border-color: var(--accent-red);
+    box-shadow: 0 0 8px rgba(255, 46, 46, 0.2);
+}
+
+.counter-icon {
+    font-size: 12px; /* SANGAT kecil */
+    color: var(--accent-red);
+}
+
+.counter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.counter-value {
+    font-size: 0.85rem; /* SANGAT kecil */
+    font-weight: 700;
+    color: var(--text-white);
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1;
+}
+
+.counter-label {
+    font-size: 0.6rem; /* SANGAT kecil */
+    color: var(--text-light-gray);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* Main Content - Disesuaikan dengan header baru */
+.main-content {
+    padding-top: 60px; /* Kurangi padding karena header lebih kecil */
+    min-height: calc(100vh - 50px);
 }
 
 /* Background Aurora Animation */
@@ -51,14 +164,14 @@ body {
     height: 100%;
     z-index: -2;
     overflow: hidden;
-    opacity: 0.2; /* Lebih transparan */
+    opacity: 0.15;
 }
 
 .aurora-line {
     position: absolute;
     background: var(--neon-red);
-    filter: blur(40px); /* Blur lebih kecil */
-    opacity: 0.08; /* Lebih transparan */
+    filter: blur(30px);
+    opacity: 0.06;
     animation: auroraFloat 25s infinite linear;
 }
 
@@ -67,13 +180,13 @@ body {
         transform: translate(0, 0) rotate(0deg);
     }
     25% {
-        transform: translate(80px, 40px) rotate(90deg);
+        transform: translate(60px, 30px) rotate(90deg);
     }
     50% {
-        transform: translate(0, 80px) rotate(180deg);
+        transform: translate(0, 60px) rotate(180deg);
     }
     75% {
-        transform: translate(-80px, 40px) rotate(270deg);
+        transform: translate(-60px, 30px) rotate(270deg);
     }
 }
 
@@ -94,64 +207,64 @@ body {
 }
 
 .loading-logo {
-    margin-bottom: 30px; /* Kurangi margin */
+    margin-bottom: 25px;
     text-align: center;
 }
 
 .loading-logo h1 {
-    font-size: 2.5rem; /* Gunakan rem */
+    font-size: 2rem;
     font-weight: 900;
     background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .loading-logo p {
     color: var(--text-gray);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 .blood-loader {
-    width: 80px; /* Lebih kecil */
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: relative;
 }
 
 .blood-drop {
     position: absolute;
-    width: 24px; /* Lebih kecil */
-    height: 24px;
+    width: 18px;
+    height: 18px;
     background: var(--accent-red);
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
-    animation: bloodDrip 2s infinite ease-in-out;
-    box-shadow: 0 0 15px var(--neon-red); /* Shadow lebih kecil */
+    animation: bloodDrip 1.8s infinite ease-in-out;
+    box-shadow: 0 0 10px var(--neon-red);
 }
 
 .blood-drop:nth-child(1) {
     top: 0;
-    left: 28px;
+    left: 21px;
     animation-delay: 0s;
 }
 
 .blood-drop:nth-child(2) {
-    top: 28px;
-    left: 56px;
+    top: 21px;
+    left: 42px;
     animation-delay: 0.2s;
 }
 
 .blood-drop:nth-child(3) {
-    top: 56px;
-    left: 28px;
+    top: 42px;
+    left: 21px;
     animation-delay: 0.4s;
 }
 
 .blood-drop:nth-child(4) {
-    top: 28px;
+    top: 21px;
     left: 0;
     animation-delay: 0.6s;
 }
@@ -162,7 +275,7 @@ body {
         opacity: 1;
     }
     50% {
-        transform: rotate(-45deg) translateY(15px); /* Pergerakan lebih kecil */
+        transform: rotate(-45deg) translateY(12px);
         opacity: 0.5;
     }
 }
@@ -173,144 +286,28 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, var(--neon-red) 0%, transparent 70%);
     transform: scale(0);
-    animation: ripple 0.5s ease-out;
+    animation: ripple 0.4s ease-out;
     pointer-events: none;
     z-index: 999;
 }
 
 @keyframes ripple {
     to {
-        transform: scale(3); /* Scale lebih kecil */
+        transform: scale(2.5);
         opacity: 0;
     }
 }
 
-/* PERBAIKAN HEADER - Lebih Kompak */
-.main-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 46, 46, 0.1);
-    padding: 12px 0; /* Padding lebih kecil */
-    height: 60px; /* Tinggi tetap */
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-    display: flex;
-    align-items: center;
-}
-
-.main-header.hidden {
-    transform: translateY(-100%);
-}
-
-.header-container {
-    max-width: 1200px; /* Lebih sempit */
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px; /* Padding lebih kecil */
-}
-
-.logo-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Gap lebih kecil */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.logo-brand:hover {
-    transform: scale(1.03); /* Efek hover lebih kecil */
-}
-
-.logo-icon {
-    width: 36px; /* Lebih kecil */
-    height: 36px;
-    background: var(--gradient-red);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px; /* Font lebih kecil */
-    color: white;
-    box-shadow: var(--shadow-red);
-}
-
-.logo-text {
-    font-size: 1.2rem; /* Lebih kecil */
-    font-weight: 900;
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 0.5px;
-}
-
-/* Visitor Counter - Lebih Kompak */
-.visitor-counter {
-    background: rgba(26, 26, 26, 0.9);
-    border-radius: 8px;
-    padding: 8px 15px; /* Padding lebih kecil */
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Gap lebih kecil */
-    border: 1px solid rgba(255, 46, 46, 0.2);
-    transition: all 0.3s ease;
-    height: 40px; /* Tinggi tetap */
-}
-
-.visitor-counter:hover {
-    border-color: var(--accent-red);
-    box-shadow: var(--shadow-red);
-}
-
-.counter-icon {
-    font-size: 16px; /* Lebih kecil */
-    color: var(--accent-red);
-}
-
-.counter-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px; /* Gap lebih kecil */
-}
-
-.counter-value {
-    font-size: 1.1rem; /* Lebih kecil */
-    font-weight: 800;
-    color: var(--text-white);
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1;
-}
-
-.counter-label {
-    font-size: 0.7rem; /* Lebih kecil */
-    color: var(--text-light-gray);
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    line-height: 1;
-}
-
-/* Main Content - Atur padding top */
-.main-content {
-    padding-top: 20px; /* Kurangi padding top */
-    min-height: calc(100vh - 60px); /* Sesuaikan dengan tinggi header */
-}
-
-/* Hero Section - Lebih Kompak */
+/* Hero Section - Lebih Dekat dengan Header */
 .hero-section {
-    padding: 40px 20px 30px; /* Padding lebih kecil */
-    max-width: 1000px; /* Lebih sempit */
+    padding: 25px 15px 20px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
     opacity: 0;
-    transform: translateY(20px); /* Translate lebih kecil */
-    animation: fadeInUp 0.8s ease forwards;
+    transform: translateY(15px);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.3s;
 }
 
 @keyframes fadeInUp {
@@ -321,10 +318,10 @@ body {
 }
 
 .hero-title {
-    font-size: 2.8rem; /* Lebih kecil */
+    font-size: 2.2rem;
     font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 15px; /* Margin lebih kecil */
+    margin-bottom: 12px;
     background: linear-gradient(135deg, #FFFFFF 0%, var(--light-red) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -332,26 +329,26 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.1rem; /* Lebih kecil */
+    font-size: 0.95rem;
     color: var(--text-gray);
-    max-width: 700px; /* Lebih sempit */
-    margin: 0 auto 30px; /* Margin lebih kecil */
+    max-width: 600px;
+    margin: 0 auto 25px;
     font-weight: 400;
     line-height: 1.5;
 }
 
-/* Story Selection - Lebih Kompak */
+/* Story Selection */
 .story-selection {
-    max-width: 1000px; /* Lebih sempit */
-    margin: 0 auto 50px; /* Margin lebih kecil */
-    padding: 0 20px; /* Padding lebih kecil */
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 15px;
     text-align: center;
 }
 
 .selection-title {
-    font-size: 1.8rem; /* Lebih kecil */
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 25px; /* Margin lebih kecil */
+    margin-bottom: 20px;
     color: var(--text-white);
     position: relative;
     display: inline-block;
@@ -360,32 +357,32 @@ body {
 .selection-title:after {
     content: '';
     position: absolute;
-    bottom: -8px; /* Posisi lebih dekat */
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Lebih pendek */
-    height: 2px; /* Lebih tipis */
+    width: 60px;
+    height: 2px;
     background: var(--gradient-red);
     border-radius: 1px;
 }
 
 .story-card {
     background: rgba(26, 26, 26, 0.9);
-    border-radius: 15px; /* Radius lebih kecil */
-    padding: 30px; /* Padding lebih kecil */
-    max-width: 700px; /* Lebih sempit */
+    border-radius: 12px;
+    padding: 25px 20px;
+    max-width: 600px;
     margin: 0 auto;
     border: 1px solid rgba(255, 46, 46, 0.1);
-    transition: all 0.3s ease; /* Durasi lebih pendek */
+    transition: all 0.25s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
 }
 
 .story-card:hover {
-    transform: translateY(-5px); /* Efek hover lebih kecil */
+    transform: translateY(-4px);
     border-color: var(--accent-red);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), var(--shadow-red);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 46, 46, 0.2);
 }
 
 .story-card:before {
@@ -395,8 +392,8 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 46, 46, 0.1), transparent);
-    transition: 0.4s; /* Durasi lebih pendek */
+    background: linear-gradient(90deg, transparent, rgba(255, 46, 46, 0.08), transparent);
+    transition: 0.35s;
 }
 
 .story-card:hover:before {
@@ -404,10 +401,10 @@ body {
 }
 
 .story-icon {
-    font-size: 2.5rem; /* Lebih kecil */
+    font-size: 2rem;
     color: var(--accent-red);
-    margin-bottom: 15px; /* Margin lebih kecil */
-    animation: pulse 1.8s infinite; /* Durasi lebih pendek */
+    margin-bottom: 12px;
+    animation: pulse 1.6s infinite;
 }
 
 @keyframes pulse {
@@ -415,37 +412,37 @@ body {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.05); /* Scale lebih kecil */
+        transform: scale(1.04);
     }
 }
 
 .story-card-title {
-    font-size: 1.8rem; /* Lebih kecil */
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 15px; /* Margin lebih kecil */
+    margin-bottom: 12px;
     color: var(--text-white);
     line-height: 1.2;
 }
 
 .story-card-desc {
-    font-size: 0.95rem; /* Lebih kecil */
+    font-size: 0.9rem;
     color: var(--text-gray);
-    margin-bottom: 20px; /* Margin lebih kecil */
+    margin-bottom: 18px;
     line-height: 1.5;
 }
 
 .read-story-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px; /* Gap lebih kecil */
+    gap: 8px;
     background: var(--gradient-red);
     color: white;
-    padding: 12px 25px; /* Padding lebih kecil */
-    border-radius: 25px; /* Radius lebih kecil */
+    padding: 10px 22px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem; /* Lebih kecil */
-    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    transition: all 0.25s ease;
     border: none;
     cursor: pointer;
     position: relative;
@@ -459,8 +456,8 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.4s; /* Durasi lebih pendek */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: 0.35s;
 }
 
 .read-story-btn:hover:before {
@@ -468,28 +465,28 @@ body {
 }
 
 .read-story-btn:hover {
-    transform: translateY(-2px); /* Efek hover lebih kecil */
-    box-shadow: 0 8px 20px rgba(255, 46, 46, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 46, 46, 0.25);
 }
 
-/* Contact Section - Lebih Kompak */
+/* Contact Section */
 .contact-section {
-    max-width: 1000px; /* Lebih sempit */
-    margin: 0 auto 60px; /* Margin lebih kecil */
-    padding: 0 20px; /* Padding lebih kecil */
+    max-width: 800px;
+    margin: 0 auto 50px;
+    padding: 0 15px;
 }
 
 .contact-container {
     background: rgba(26, 26, 26, 0.7);
-    border-radius: 15px; /* Radius lebih kecil */
-    padding: 40px 30px; /* Padding lebih kecil */
+    border-radius: 12px;
+    padding: 30px 25px;
     border: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .contact-title {
-    font-size: 1.8rem; /* Lebih kecil */
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 30px; /* Margin lebih kecil */
+    margin-bottom: 25px;
     color: var(--text-white);
     text-align: center;
     position: relative;
@@ -498,73 +495,73 @@ body {
 .contact-title:after {
     content: '';
     position: absolute;
-    bottom: -12px; /* Posisi lebih dekat */
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Lebih pendek */
-    height: 2px; /* Lebih tipis */
+    width: 60px;
+    height: 2px;
     background: var(--gradient-red);
     border-radius: 1px;
 }
 
 .contact-cards {
     display: flex;
-    gap: 25px; /* Gap lebih kecil */
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .contact-card {
     background: rgba(17, 17, 17, 0.9);
-    border-radius: 12px; /* Radius lebih kecil */
-    padding: 25px 20px; /* Padding lebih kecil */
+    border-radius: 10px;
+    padding: 22px 18px;
     flex: 1;
-    min-width: 280px; /* Lebih kecil */
-    max-width: 350px; /* Lebih kecil */
+    min-width: 250px;
+    max-width: 300px;
     border: 1px solid rgba(255, 46, 46, 0.1);
-    transition: all 0.3s ease; /* Durasi lebih pendek */
+    transition: all 0.25s ease;
     text-align: center;
 }
 
 .contact-card:hover {
-    transform: translateY(-5px); /* Efek hover lebih kecil */
+    transform: translateY(-4px);
     border-color: var(--accent-red);
-    box-shadow: var(--shadow-red);
+    box-shadow: 0 8px 20px rgba(255, 46, 46, 0.2);
 }
 
 .contact-icon {
-    font-size: 2rem; /* Lebih kecil */
+    font-size: 1.7rem;
     color: var(--accent-red);
-    margin-bottom: 15px; /* Margin lebih kecil */
+    margin-bottom: 12px;
 }
 
 .contact-card-title {
-    font-size: 1.3rem; /* Lebih kecil */
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 12px; /* Margin lebih kecil */
+    margin-bottom: 10px;
     color: var(--text-white);
     line-height: 1.2;
 }
 
 .contact-card-desc {
-    font-size: 0.9rem; /* Lebih kecil */
+    font-size: 0.85rem;
     color: var(--text-gray);
-    margin-bottom: 20px; /* Margin lebih kecil */
+    margin-bottom: 18px;
     line-height: 1.5;
 }
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* Gap lebih kecil */
+    gap: 6px;
     background: var(--gradient-red);
     color: white;
-    padding: 10px 20px; /* Padding lebih kecil */
-    border-radius: 20px; /* Radius lebih kecil */
+    padding: 9px 18px;
+    border-radius: 18px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.85rem; /* Lebih kecil */
-    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    transition: all 0.25s ease;
     border: none;
     cursor: pointer;
 }
@@ -574,41 +571,41 @@ body {
 }
 
 .contact-btn:hover {
-    transform: translateY(-2px); /* Efek hover lebih kecil */
-    box-shadow: 0 6px 15px rgba(255, 46, 46, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(255, 46, 46, 0.25);
 }
 
-/* Story Content (Initially Hidden) */
+/* Story Content */
 .story-container {
-    max-width: 900px; /* Lebih sempit */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 30px; /* Padding lebih kecil */
+    padding: 25px;
     background: rgba(17, 17, 17, 0.95);
-    border-radius: 15px; /* Radius lebih kecil */
+    border-radius: 12px;
     border: 1px solid rgba(255, 46, 46, 0.1);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Shadow lebih kecil */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     display: none;
     opacity: 0;
-    transform: translateY(20px); /* Translate lebih kecil */
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .story-container.show {
     display: block;
-    animation: fadeInUp 0.6s ease forwards; /* Durasi lebih pendek */
+    animation: fadeInUp 0.5s ease forwards;
 }
 
 .story-header {
     text-align: center;
-    margin-bottom: 35px; /* Margin lebih kecil */
-    padding-bottom: 20px; /* Padding lebih kecil */
+    margin-bottom: 30px;
+    padding-bottom: 18px;
     border-bottom: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .story-main-title {
-    font-size: 2.2rem; /* Lebih kecil */
+    font-size: 1.8rem;
     font-weight: 800;
-    margin-bottom: 12px; /* Margin lebih kecil */
+    margin-bottom: 10px;
     color: var(--text-white);
     line-height: 1.2;
 }
@@ -616,37 +613,36 @@ body {
 .story-meta {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Gap lebih kecil */
+    gap: 15px;
     color: var(--text-light-gray);
-    font-size: 0.9rem; /* Lebih kecil */
-    margin-bottom: 15px; /* Margin lebih kecil */
+    font-size: 0.85rem;
+    margin-bottom: 12px;
     flex-wrap: wrap;
 }
 
 .story-meta-item {
     display: flex;
     align-items: center;
-    gap: 6px; /* Gap lebih kecil */
+    gap: 5px;
 }
 
 .story-meta-item i {
     color: var(--accent-red);
-    font-size: 0.9rem; /* Lebih kecil */
+    font-size: 0.85rem;
 }
 
-/* Story Content Styling */
 .story-content {
-    font-size: 0.95rem; /* Lebih kecil */
+    font-size: 0.9rem;
     line-height: 1.6;
     color: var(--text-white);
     font-weight: 400;
 }
 
 .chapter {
-    margin-bottom: 35px; /* Margin lebih kecil */
+    margin-bottom: 30px;
     opacity: 0;
-    transform: translateY(15px); /* Translate lebih kecil */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Durasi lebih pendek */
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .chapter.visible {
@@ -655,11 +651,11 @@ body {
 }
 
 .chapter-title {
-    font-size: 1.5rem; /* Lebih kecil */
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--accent-red);
-    margin-bottom: 18px; /* Margin lebih kecil */
-    padding-bottom: 10px; /* Padding lebih kecil */
+    margin-bottom: 15px;
+    padding-bottom: 8px;
     border-bottom: 2px solid rgba(255, 46, 46, 0.3);
     position: relative;
 }
@@ -669,13 +665,13 @@ body {
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 80px; /* Lebih pendek */
+    width: 60px;
     height: 2px;
     background: var(--gradient-red);
 }
 
 .story-paragraph {
-    margin-bottom: 15px; /* Margin lebih kecil */
+    margin-bottom: 12px;
     text-align: justify;
     letter-spacing: -0.01em;
     color: var(--text-gray);
@@ -687,14 +683,14 @@ body {
 }
 
 .dialogue {
-    margin-left: 20px; /* Margin lebih kecil */
-    padding: 15px; /* Padding lebih kecil */
+    margin-left: 15px;
+    padding: 12px;
     background: rgba(255, 46, 46, 0.05);
-    border-left: 2px solid var(--accent-red); /* Border lebih tipis */
-    border-radius: 0 8px 8px 0;
+    border-left: 2px solid var(--accent-red);
+    border-radius: 0 6px 6px 0;
     font-style: italic;
     color: var(--text-white);
-    margin-bottom: 18px; /* Margin lebih kecil */
+    margin-bottom: 15px;
     position: relative;
     line-height: 1.5;
 }
@@ -702,20 +698,20 @@ body {
 .dialogue:before {
     content: '"';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    font-size: 30px; /* Lebih kecil */
+    top: 6px;
+    left: 6px;
+    font-size: 24px;
     color: var(--accent-red);
     opacity: 0.3;
     font-family: 'Inter', sans-serif;
 }
 
 .highlight {
-    background: rgba(255, 46, 46, 0.07);
-    padding: 18px; /* Padding lebih kecil */
-    border-radius: 8px; /* Radius lebih kecil */
-    border: 1px solid rgba(255, 46, 46, 0.2);
-    margin: 20px 0; /* Margin lebih kecil */
+    background: rgba(255, 46, 46, 0.06);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 46, 46, 0.15);
+    margin: 15px 0;
     color: var(--text-white);
     font-weight: 500;
     position: relative;
@@ -728,18 +724,18 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px; /* Lebih tipis */
+    width: 3px;
     height: 100%;
     background: var(--gradient-red);
 }
 
-/* Back to Top Button - Lebih Kecil */
+/* Back to Top Button */
 .back-to-top {
     position: fixed;
-    bottom: 25px; /* Posisi lebih dekat */
-    right: 25px;
-    width: 45px; /* Lebih kecil */
-    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
     background: var(--gradient-red);
     border-radius: 50%;
     display: flex;
@@ -749,11 +745,11 @@ body {
     text-decoration: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px); /* Translate lebih kecil */
-    transition: all 0.3s ease;
+    transform: translateY(12px);
+    transition: all 0.25s ease;
     z-index: 90;
-    box-shadow: 0 5px 15px rgba(255, 46, 46, 0.3); /* Shadow lebih kecil */
-    font-size: 1rem; /* Lebih kecil */
+    box-shadow: 0 4px 12px rgba(255, 46, 46, 0.2);
+    font-size: 0.9rem;
 }
 
 .back-to-top.show {
@@ -763,78 +759,78 @@ body {
 }
 
 .back-to-top:hover {
-    transform: translateY(-3px) scale(1.05); /* Efek hover lebih kecil */
+    transform: translateY(-2px) scale(1.05);
 }
 
-/* Footer - Lebih Kompak */
+/* Footer */
 .main-footer {
-    margin-top: 60px; /* Margin lebih kecil */
-    padding: 40px 20px; /* Padding lebih kecil */
+    margin-top: 50px;
+    padding: 35px 15px;
     background: rgba(10, 10, 10, 0.95);
     border-top: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .footer-content {
-    max-width: 1000px; /* Lebih sempit */
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
 .footer-logo {
-    font-size: 1.8rem; /* Lebih kecil */
+    font-size: 1.5rem;
     font-weight: 900;
     background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 15px; /* Margin lebih kecil */
-    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
 }
 
 .footer-tagline {
     color: var(--text-gray);
-    font-size: 0.95rem; /* Lebih kecil */
-    max-width: 600px; /* Lebih sempit */
-    margin: 0 auto 25px; /* Margin lebih kecil */
-    line-height: 1.6;
+    font-size: 0.9rem;
+    max-width: 550px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
 }
 
 .contact-email {
-    margin: 20px 0; /* Margin lebih kecil */
+    margin: 15px 0;
 }
 
 .email-link {
     display: inline-flex;
     align-items: center;
-    gap: 8px; /* Gap lebih kecil */
+    gap: 6px;
     background: rgba(26, 26, 26, 0.9);
     color: var(--text-white);
-    padding: 12px 25px; /* Padding lebih kecil */
-    border-radius: 20px; /* Radius lebih kecil */
+    padding: 10px 20px;
+    border-radius: 18px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem; /* Lebih kecil */
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 46, 46, 0.2);
+    font-size: 0.85rem;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 46, 46, 0.15);
 }
 
 .email-link:hover {
-    background: rgba(255, 46, 46, 0.1);
+    background: rgba(255, 46, 46, 0.08);
     border-color: var(--accent-red);
-    transform: translateY(-2px); /* Efek hover lebih kecil */
-    box-shadow: 0 6px 15px rgba(255, 46, 46, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(255, 46, 46, 0.2);
 }
 
 .email-link i {
     color: var(--accent-red);
-    font-size: 0.9rem; /* Lebih kecil */
+    font-size: 0.85rem;
 }
 
 .copyright {
     color: var(--text-light-gray);
-    font-size: 0.8rem; /* Lebih kecil */
-    margin-top: 25px; /* Margin lebih kecil */
-    padding-top: 15px; /* Padding lebih kecil */
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding-top: 15px;
     border-top: 1px solid rgba(255, 46, 46, 0.1);
     line-height: 1.5;
 }
@@ -845,12 +841,12 @@ body {
 
 .copyright .fa-heart {
     color: var(--accent-red);
-    font-size: 0.8rem; /* Lebih kecil */
+    font-size: 0.75rem;
 }
 
-/* Scrollbar - Lebih Tipis */
+/* Scrollbar */
 ::-webkit-scrollbar {
-    width: 8px; /* Lebih tipis */
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -859,85 +855,86 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--accent-red);
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--neon-red);
 }
 
-/* Responsive Design - Dioptimalkan untuk Mobile */
+/* Responsive Design */
 @media (max-width: 768px) {
     html {
-        font-size: 13px; /* Lebih kecil di mobile */
-    }
-    
-    body {
-        padding-top: 60px; /* Sesuaikan dengan tinggi header mobile */
+        font-size: 13px;
     }
     
     .main-header {
-        height: 55px; /* Lebih pendek di mobile */
-        padding: 10px 0;
+        height: 48px;
+        padding: 6px 0;
     }
     
     .header-container {
-        padding: 0 15px; /* Padding lebih kecil */
+        padding: 0 12px;
     }
     
     .logo-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
     }
     
     .logo-text {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
     }
     
     .visitor-counter {
-        padding: 6px 12px;
-        height: 36px;
+        padding: 4px 8px;
+        height: 30px;
     }
     
     .counter-value {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     
     .counter-label {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
+    }
+    
+    .main-content {
+        padding-top: 58px;
+        min-height: calc(100vh - 48px);
     }
     
     .hero-title {
-        font-size: 2.2rem;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 8px;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-bottom: 20px;
     }
     
     .story-card {
-        padding: 25px 20px;
+        padding: 20px 15px;
     }
     
     .story-card-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .selection-title,
     .contact-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .contact-cards {
-        gap: 15px;
+        gap: 12px;
     }
     
     .contact-card {
         min-width: 100%;
-        padding: 20px 15px;
+        padding: 18px 15px;
     }
     
     .story-container {
@@ -946,108 +943,174 @@ body {
     }
     
     .story-main-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
     
     .story-meta {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
     }
     
     .chapter-title {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     
     .back-to-top {
         bottom: 15px;
         right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
     }
     
     .main-footer {
-        padding: 30px 15px;
+        padding: 25px 12px;
     }
     
     .footer-logo {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .email-link {
-        padding: 10px 20px;
-        font-size: 0.85rem;
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     html {
-        font-size: 12px; /* Lebih kecil untuk device sangat kecil */
+        font-size: 12px;
+    }
+    
+    .main-header {
+        height: 45px;
+    }
+    
+    .logo-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .logo-text {
+        font-size: 0.8rem;
+    }
+    
+    .visitor-counter {
+        padding: 3px 6px;
+        height: 28px;
+        gap: 4px;
+    }
+    
+    .counter-value {
+        font-size: 0.75rem;
+    }
+    
+    .counter-label {
+        font-size: 0.5rem;
+    }
+    
+    .main-content {
+        padding-top: 55px;
+        min-height: calc(100vh - 45px);
     }
     
     .hero-title {
-        font-size: 1.8rem;
-    }
-    
-    .story-card {
-        padding: 20px 15px;
+        font-size: 1.6rem;
     }
     
     .story-icon {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
     
     .read-story-btn,
     .contact-btn {
-        padding: 10px 18px;
-        font-size: 0.8rem;
+        padding: 8px 16px;
+        font-size: 0.75rem;
     }
     
     .contact-container {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
     
     .story-content {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
     .dialogue {
         margin-left: 10px;
-        padding: 12px;
+        padding: 10px;
     }
     
     .highlight {
-        padding: 15px;
+        padding: 12px;
     }
 }
 
-/* Utility untuk tampilan lebih kompak */
-@media (max-height: 700px) and (orientation: landscape) {
-    .hero-section {
-        padding: 20px 15px 15px;
-    }
-    
-    .story-selection {
-        margin: 0 auto 30px;
-    }
-    
-    .contact-section {
-        margin: 0 auto 40px;
-    }
+/* Utility untuk Header Tetap di Atas */
+.main-header {
+    will-change: transform;
 }
 
-/* Pastikan semua konten terlihat dalam satu layar */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px; /* Jarak antar section lebih kecil */
+/* Pastikan konten tidak overlap dengan header */
+body {
+    scroll-padding-top: 60px;
 }
 
-/* Animasi fade in untuk semua section */
+/* Animasi section */
 .hero-section,
 .story-selection,
 .contact-section {
-    animation: fadeInUp 0.8s ease forwards;
+    animation: fadeInUp 0.6s ease forwards;
     animation-delay: 0.2s;
     opacity: 0;
+}
+
+/* Untuk landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .main-header {
+        height: 40px;
+        padding: 4px 0;
+    }
+    
+    .logo-icon {
+        width: 22px;
+        height: 22px;
+        font-size: 10px;
+    }
+    
+    .logo-text {
+        font-size: 0.75rem;
+    }
+    
+    .visitor-counter {
+        height: 26px;
+        padding: 2px 5px;
+    }
+    
+    .counter-value {
+        font-size: 0.7rem;
+    }
+    
+    .counter-label {
+        font-size: 0.45rem;
+    }
+    
+    .main-content {
+        padding-top: 50px;
+        min-height: calc(100vh - 40px);
+    }
+    
+    .hero-section {
+        padding: 15px 12px 10px;
+    }
+    
+    .hero-title {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
 }

@@ -1,3 +1,5 @@
+/* Perbaikan Utama untuk Layout yang Lebih Kompak */
+
 :root {
     --primary-black: #0A0A0A;
     --secondary-black: #111111;
@@ -22,20 +24,22 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 14px; /* Ukuran font dasar lebih kecil */
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--primary-black);
     color: var(--text-white);
-    line-height: 1.6;
+    line-height: 1.5; /* Line height lebih ketat */
     font-weight: 400;
-    font-size: 15px;
+    font-size: 1rem; /* Menggunakan rem */
     overflow-x: hidden;
     letter-spacing: -0.01em;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 70px; /* Padding untuk header fixed */
 }
 
 /* Background Aurora Animation */
@@ -47,15 +51,15 @@ body {
     height: 100%;
     z-index: -2;
     overflow: hidden;
-    opacity: 0.3;
+    opacity: 0.2; /* Lebih transparan */
 }
 
 .aurora-line {
     position: absolute;
     background: var(--neon-red);
-    filter: blur(60px);
-    opacity: 0.1;
-    animation: auroraFloat 20s infinite linear;
+    filter: blur(40px); /* Blur lebih kecil */
+    opacity: 0.08; /* Lebih transparan */
+    animation: auroraFloat 25s infinite linear;
 }
 
 @keyframes auroraFloat {
@@ -63,13 +67,13 @@ body {
         transform: translate(0, 0) rotate(0deg);
     }
     25% {
-        transform: translate(100px, 50px) rotate(90deg);
+        transform: translate(80px, 40px) rotate(90deg);
     }
     50% {
-        transform: translate(0, 100px) rotate(180deg);
+        transform: translate(0, 80px) rotate(180deg);
     }
     75% {
-        transform: translate(-100px, 50px) rotate(270deg);
+        transform: translate(-80px, 40px) rotate(270deg);
     }
 }
 
@@ -86,68 +90,68 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
 }
 
 .loading-logo {
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* Kurangi margin */
     text-align: center;
 }
 
 .loading-logo h1 {
-    font-size: 48px;
+    font-size: 2.5rem; /* Gunakan rem */
     font-weight: 900;
     background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .loading-logo p {
     color: var(--text-gray);
-    font-size: 14px;
-    letter-spacing: 3px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
 }
 
 .blood-loader {
-    width: 100px;
-    height: 100px;
+    width: 80px; /* Lebih kecil */
+    height: 80px;
     position: relative;
 }
 
 .blood-drop {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 24px; /* Lebih kecil */
+    height: 24px;
     background: var(--accent-red);
     border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
     animation: bloodDrip 2s infinite ease-in-out;
-    box-shadow: 0 0 20px var(--neon-red);
+    box-shadow: 0 0 15px var(--neon-red); /* Shadow lebih kecil */
 }
 
 .blood-drop:nth-child(1) {
     top: 0;
-    left: 35px;
+    left: 28px;
     animation-delay: 0s;
 }
 
 .blood-drop:nth-child(2) {
-    top: 35px;
-    left: 70px;
+    top: 28px;
+    left: 56px;
     animation-delay: 0.2s;
 }
 
 .blood-drop:nth-child(3) {
-    top: 70px;
-    left: 35px;
+    top: 56px;
+    left: 28px;
     animation-delay: 0.4s;
 }
 
 .blood-drop:nth-child(4) {
-    top: 35px;
+    top: 28px;
     left: 0;
     animation-delay: 0.6s;
 }
@@ -158,7 +162,7 @@ body {
         opacity: 1;
     }
     50% {
-        transform: rotate(-45deg) translateY(20px);
+        transform: rotate(-45deg) translateY(15px); /* Pergerakan lebih kecil */
         opacity: 0.5;
     }
 }
@@ -169,30 +173,33 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, var(--neon-red) 0%, transparent 70%);
     transform: scale(0);
-    animation: ripple 0.6s ease-out;
+    animation: ripple 0.5s ease-out;
     pointer-events: none;
     z-index: 999;
 }
 
 @keyframes ripple {
     to {
-        transform: scale(4);
+        transform: scale(3); /* Scale lebih kecil */
         opacity: 0;
     }
 }
 
-/* Header */
+/* PERBAIKAN HEADER - Lebih Kompak */
 .main-header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 46, 46, 0.1);
-    padding: 20px 0;
+    padding: 12px 0; /* Padding lebih kecil */
+    height: 60px; /* Tinggi tetap */
     transform: translateY(0);
     transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .main-header.hidden {
@@ -200,59 +207,61 @@ body {
 }
 
 .header-container {
-    max-width: 1400px;
+    max-width: 1200px; /* Lebih sempit */
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 20px; /* Padding lebih kecil */
 }
 
 .logo-brand {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px; /* Gap lebih kecil */
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .logo-brand:hover {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Efek hover lebih kecil */
 }
 
 .logo-icon {
-    width: 45px;
-    height: 45px;
+    width: 36px; /* Lebih kecil */
+    height: 36px;
     background: var(--gradient-red);
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 16px; /* Font lebih kecil */
     color: white;
     box-shadow: var(--shadow-red);
 }
 
 .logo-text {
-    font-size: 24px;
+    font-size: 1.2rem; /* Lebih kecil */
     font-weight: 900;
     background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-/* Visitor Counter */
+/* Visitor Counter - Lebih Kompak */
 .visitor-counter {
-    background: rgba(26, 26, 26, 0.8);
-    border-radius: 10px;
-    padding: 10px 20px;
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 8px;
+    padding: 8px 15px; /* Padding lebih kecil */
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px; /* Gap lebih kecil */
     border: 1px solid rgba(255, 46, 46, 0.2);
     transition: all 0.3s ease;
+    height: 40px; /* Tinggi tetap */
 }
 
 .visitor-counter:hover {
@@ -261,44 +270,47 @@ body {
 }
 
 .counter-icon {
-    font-size: 20px;
+    font-size: 16px; /* Lebih kecil */
     color: var(--accent-red);
 }
 
 .counter-content {
     display: flex;
     flex-direction: column;
+    gap: 2px; /* Gap lebih kecil */
 }
 
 .counter-value {
-    font-size: 24px;
+    font-size: 1.1rem; /* Lebih kecil */
     font-weight: 800;
     color: var(--text-white);
     font-family: 'JetBrains Mono', monospace;
+    line-height: 1;
 }
 
 .counter-label {
-    font-size: 11px;
+    font-size: 0.7rem; /* Lebih kecil */
     color: var(--text-light-gray);
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
+    line-height: 1;
 }
 
-/* Main Content */
+/* Main Content - Atur padding top */
 .main-content {
-    padding-top: 120px;
-    min-height: 100vh;
+    padding-top: 20px; /* Kurangi padding top */
+    min-height: calc(100vh - 60px); /* Sesuaikan dengan tinggi header */
 }
 
-/* Hero Section */
+/* Hero Section - Lebih Kompak */
 .hero-section {
-    padding: 80px 40px;
-    max-width: 1200px;
+    padding: 40px 20px 30px; /* Padding lebih kecil */
+    max-width: 1000px; /* Lebih sempit */
     margin: 0 auto;
     text-align: center;
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(20px); /* Translate lebih kecil */
+    animation: fadeInUp 0.8s ease forwards;
 }
 
 @keyframes fadeInUp {
@@ -309,10 +321,10 @@ body {
 }
 
 .hero-title {
-    font-size: 64px;
+    font-size: 2.8rem; /* Lebih kecil */
     font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Margin lebih kecil */
     background: linear-gradient(135deg, #FFFFFF 0%, var(--light-red) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -320,25 +332,26 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 20px;
+    font-size: 1.1rem; /* Lebih kecil */
     color: var(--text-gray);
-    max-width: 800px;
-    margin: 0 auto 50px;
+    max-width: 700px; /* Lebih sempit */
+    margin: 0 auto 30px; /* Margin lebih kecil */
     font-weight: 400;
+    line-height: 1.5;
 }
 
-/* Story Selection */
+/* Story Selection - Lebih Kompak */
 .story-selection {
-    max-width: 1200px;
-    margin: 0 auto 80px;
-    padding: 0 40px;
+    max-width: 1000px; /* Lebih sempit */
+    margin: 0 auto 50px; /* Margin lebih kecil */
+    padding: 0 20px; /* Padding lebih kecil */
     text-align: center;
 }
 
 .selection-title {
-    font-size: 32px;
+    font-size: 1.8rem; /* Lebih kecil */
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 25px; /* Margin lebih kecil */
     color: var(--text-white);
     position: relative;
     display: inline-block;
@@ -347,32 +360,32 @@ body {
 .selection-title:after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px; /* Posisi lebih dekat */
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
+    width: 80px; /* Lebih pendek */
+    height: 2px; /* Lebih tipis */
     background: var(--gradient-red);
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 .story-card {
-    background: rgba(26, 26, 26, 0.8);
-    border-radius: 20px;
-    padding: 50px;
-    max-width: 800px;
+    background: rgba(26, 26, 26, 0.9);
+    border-radius: 15px; /* Radius lebih kecil */
+    padding: 30px; /* Padding lebih kecil */
+    max-width: 700px; /* Lebih sempit */
     margin: 0 auto;
     border: 1px solid rgba(255, 46, 46, 0.1);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease; /* Durasi lebih pendek */
     cursor: pointer;
     position: relative;
     overflow: hidden;
 }
 
 .story-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Efek hover lebih kecil */
     border-color: var(--accent-red);
-    box-shadow: var(--shadow-heavy), var(--shadow-red);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), var(--shadow-red);
 }
 
 .story-card:before {
@@ -383,7 +396,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 46, 46, 0.1), transparent);
-    transition: 0.5s;
+    transition: 0.4s; /* Durasi lebih pendek */
 }
 
 .story-card:hover:before {
@@ -391,10 +404,10 @@ body {
 }
 
 .story-icon {
-    font-size: 56px;
+    font-size: 2.5rem; /* Lebih kecil */
     color: var(--accent-red);
-    margin-bottom: 25px;
-    animation: pulse 2s infinite;
+    margin-bottom: 15px; /* Margin lebih kecil */
+    animation: pulse 1.8s infinite; /* Durasi lebih pendek */
 }
 
 @keyframes pulse {
@@ -402,35 +415,36 @@ body {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05); /* Scale lebih kecil */
     }
 }
 
 .story-card-title {
-    font-size: 36px;
+    font-size: 1.8rem; /* Lebih kecil */
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Margin lebih kecil */
     color: var(--text-white);
+    line-height: 1.2;
 }
 
 .story-card-desc {
-    font-size: 16px;
+    font-size: 0.95rem; /* Lebih kecil */
     color: var(--text-gray);
-    margin-bottom: 30px;
-    line-height: 1.7;
+    margin-bottom: 20px; /* Margin lebih kecil */
+    line-height: 1.5;
 }
 
 .read-story-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px; /* Gap lebih kecil */
     background: var(--gradient-red);
     color: white;
-    padding: 15px 40px;
-    border-radius: 30px;
+    padding: 12px 25px; /* Padding lebih kecil */
+    border-radius: 25px; /* Radius lebih kecil */
     text-decoration: none;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 0.9rem; /* Lebih kecil */
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
@@ -446,7 +460,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+    transition: 0.4s; /* Durasi lebih pendek */
 }
 
 .read-story-btn:hover:before {
@@ -454,28 +468,28 @@ body {
 }
 
 .read-story-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(255, 46, 46, 0.4);
+    transform: translateY(-2px); /* Efek hover lebih kecil */
+    box-shadow: 0 8px 20px rgba(255, 46, 46, 0.3);
 }
 
-/* Contact Section */
+/* Contact Section - Lebih Kompak */
 .contact-section {
-    max-width: 1200px;
-    margin: 0 auto 100px;
-    padding: 0 40px;
+    max-width: 1000px; /* Lebih sempit */
+    margin: 0 auto 60px; /* Margin lebih kecil */
+    padding: 0 20px; /* Padding lebih kecil */
 }
 
 .contact-container {
-    background: rgba(26, 26, 26, 0.6);
-    border-radius: 20px;
-    padding: 60px 40px;
+    background: rgba(26, 26, 26, 0.7);
+    border-radius: 15px; /* Radius lebih kecil */
+    padding: 40px 30px; /* Padding lebih kecil */
     border: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .contact-title {
-    font-size: 32px;
+    font-size: 1.8rem; /* Lebih kecil */
     font-weight: 700;
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* Margin lebih kecil */
     color: var(--text-white);
     text-align: center;
     position: relative;
@@ -484,71 +498,72 @@ body {
 .contact-title:after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -12px; /* Posisi lebih dekat */
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
+    width: 80px; /* Lebih pendek */
+    height: 2px; /* Lebih tipis */
     background: var(--gradient-red);
-    border-radius: 2px;
+    border-radius: 1px;
 }
 
 .contact-cards {
     display: flex;
-    gap: 40px;
+    gap: 25px; /* Gap lebih kecil */
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .contact-card {
-    background: rgba(17, 17, 17, 0.8);
-    border-radius: 15px;
-    padding: 40px 30px;
+    background: rgba(17, 17, 17, 0.9);
+    border-radius: 12px; /* Radius lebih kecil */
+    padding: 25px 20px; /* Padding lebih kecil */
     flex: 1;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 280px; /* Lebih kecil */
+    max-width: 350px; /* Lebih kecil */
     border: 1px solid rgba(255, 46, 46, 0.1);
-    transition: all 0.4s ease;
+    transition: all 0.3s ease; /* Durasi lebih pendek */
     text-align: center;
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Efek hover lebih kecil */
     border-color: var(--accent-red);
     box-shadow: var(--shadow-red);
 }
 
 .contact-icon {
-    font-size: 48px;
+    font-size: 2rem; /* Lebih kecil */
     color: var(--accent-red);
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Margin lebih kecil */
 }
 
 .contact-card-title {
-    font-size: 24px;
+    font-size: 1.3rem; /* Lebih kecil */
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 12px; /* Margin lebih kecil */
     color: var(--text-white);
+    line-height: 1.2;
 }
 
 .contact-card-desc {
-    font-size: 15px;
+    font-size: 0.9rem; /* Lebih kecil */
     color: var(--text-gray);
-    margin-bottom: 25px;
-    line-height: 1.6;
+    margin-bottom: 20px; /* Margin lebih kecil */
+    line-height: 1.5;
 }
 
 .contact-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* Gap lebih kecil */
     background: var(--gradient-red);
     color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 10px 20px; /* Padding lebih kecil */
+    border-radius: 20px; /* Radius lebih kecil */
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.85rem; /* Lebih kecil */
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
@@ -559,41 +574,41 @@ body {
 }
 
 .contact-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 46, 46, 0.4);
+    transform: translateY(-2px); /* Efek hover lebih kecil */
+    box-shadow: 0 6px 15px rgba(255, 46, 46, 0.3);
 }
 
 /* Story Content (Initially Hidden) */
 .story-container {
-    max-width: 1000px;
+    max-width: 900px; /* Lebih sempit */
     margin: 0 auto;
-    padding: 40px;
-    background: rgba(17, 17, 17, 0.9);
-    border-radius: 20px;
+    padding: 30px; /* Padding lebih kecil */
+    background: rgba(17, 17, 17, 0.95);
+    border-radius: 15px; /* Radius lebih kecil */
     border: 1px solid rgba(255, 46, 46, 0.1);
-    box-shadow: var(--shadow-heavy);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Shadow lebih kecil */
     display: none;
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(20px); /* Translate lebih kecil */
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .story-container.show {
     display: block;
-    animation: fadeInUp 0.8s ease forwards;
+    animation: fadeInUp 0.6s ease forwards; /* Durasi lebih pendek */
 }
 
 .story-header {
     text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 30px;
+    margin-bottom: 35px; /* Margin lebih kecil */
+    padding-bottom: 20px; /* Padding lebih kecil */
     border-bottom: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .story-main-title {
-    font-size: 42px;
+    font-size: 2.2rem; /* Lebih kecil */
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px; /* Margin lebih kecil */
     color: var(--text-white);
     line-height: 1.2;
 }
@@ -601,36 +616,37 @@ body {
 .story-meta {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px; /* Gap lebih kecil */
     color: var(--text-light-gray);
-    font-size: 14px;
-    margin-bottom: 20px;
+    font-size: 0.9rem; /* Lebih kecil */
+    margin-bottom: 15px; /* Margin lebih kecil */
     flex-wrap: wrap;
 }
 
 .story-meta-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px; /* Gap lebih kecil */
 }
 
 .story-meta-item i {
     color: var(--accent-red);
+    font-size: 0.9rem; /* Lebih kecil */
 }
 
 /* Story Content Styling */
 .story-content {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 0.95rem; /* Lebih kecil */
+    line-height: 1.6;
     color: var(--text-white);
     font-weight: 400;
 }
 
 .chapter {
-    margin-bottom: 50px;
+    margin-bottom: 35px; /* Margin lebih kecil */
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(15px); /* Translate lebih kecil */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Durasi lebih pendek */
 }
 
 .chapter.visible {
@@ -639,11 +655,11 @@ body {
 }
 
 .chapter-title {
-    font-size: 28px;
+    font-size: 1.5rem; /* Lebih kecil */
     font-weight: 700;
     color: var(--accent-red);
-    margin-bottom: 25px;
-    padding-bottom: 15px;
+    margin-bottom: 18px; /* Margin lebih kecil */
+    padding-bottom: 10px; /* Padding lebih kecil */
     border-bottom: 2px solid rgba(255, 46, 46, 0.3);
     position: relative;
 }
@@ -653,16 +669,17 @@ body {
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 100px;
+    width: 80px; /* Lebih pendek */
     height: 2px;
     background: var(--gradient-red);
 }
 
 .story-paragraph {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Margin lebih kecil */
     text-align: justify;
     letter-spacing: -0.01em;
     color: var(--text-gray);
+    line-height: 1.6;
 }
 
 .story-paragraph:last-child {
@@ -670,38 +687,40 @@ body {
 }
 
 .dialogue {
-    margin-left: 30px;
-    padding: 20px;
+    margin-left: 20px; /* Margin lebih kecil */
+    padding: 15px; /* Padding lebih kecil */
     background: rgba(255, 46, 46, 0.05);
-    border-left: 3px solid var(--accent-red);
-    border-radius: 0 10px 10px 0;
+    border-left: 2px solid var(--accent-red); /* Border lebih tipis */
+    border-radius: 0 8px 8px 0;
     font-style: italic;
     color: var(--text-white);
-    margin-bottom: 25px;
+    margin-bottom: 18px; /* Margin lebih kecil */
     position: relative;
+    line-height: 1.5;
 }
 
 .dialogue:before {
     content: '"';
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 40px;
+    top: 8px;
+    left: 8px;
+    font-size: 30px; /* Lebih kecil */
     color: var(--accent-red);
     opacity: 0.3;
     font-family: 'Inter', sans-serif;
 }
 
 .highlight {
-    background: rgba(255, 46, 46, 0.08);
-    padding: 25px;
-    border-radius: 10px;
+    background: rgba(255, 46, 46, 0.07);
+    padding: 18px; /* Padding lebih kecil */
+    border-radius: 8px; /* Radius lebih kecil */
     border: 1px solid rgba(255, 46, 46, 0.2);
-    margin: 30px 0;
+    margin: 20px 0; /* Margin lebih kecil */
     color: var(--text-white);
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    line-height: 1.6;
 }
 
 .highlight:before {
@@ -709,18 +728,18 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 5px;
+    width: 4px; /* Lebih tipis */
     height: 100%;
     background: var(--gradient-red);
 }
 
-/* Back to Top Button */
+/* Back to Top Button - Lebih Kecil */
 .back-to-top {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 50px;
-    height: 50px;
+    bottom: 25px; /* Posisi lebih dekat */
+    right: 25px;
+    width: 45px; /* Lebih kecil */
+    height: 45px;
     background: var(--gradient-red);
     border-radius: 50%;
     display: flex;
@@ -730,10 +749,11 @@ body {
     text-decoration: none;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(20px);
+    transform: translateY(15px); /* Translate lebih kecil */
     transition: all 0.3s ease;
     z-index: 90;
-    box-shadow: var(--shadow-red);
+    box-shadow: 0 5px 15px rgba(255, 46, 46, 0.3); /* Shadow lebih kecil */
+    font-size: 1rem; /* Lebih kecil */
 }
 
 .back-to-top.show {
@@ -743,57 +763,57 @@ body {
 }
 
 .back-to-top:hover {
-    transform: translateY(-5px) scale(1.1);
+    transform: translateY(-3px) scale(1.05); /* Efek hover lebih kecil */
 }
 
-/* Footer */
+/* Footer - Lebih Kompak */
 .main-footer {
-    margin-top: 100px;
-    padding: 60px 40px;
+    margin-top: 60px; /* Margin lebih kecil */
+    padding: 40px 20px; /* Padding lebih kecil */
     background: rgba(10, 10, 10, 0.95);
     border-top: 1px solid rgba(255, 46, 46, 0.1);
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1000px; /* Lebih sempit */
     margin: 0 auto;
     text-align: center;
 }
 
 .footer-logo {
-    font-size: 32px;
+    font-size: 1.8rem; /* Lebih kecil */
     font-weight: 900;
     background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    margin-bottom: 15px; /* Margin lebih kecil */
+    letter-spacing: 0.5px;
 }
 
 .footer-tagline {
     color: var(--text-gray);
-    font-size: 16px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.8;
+    font-size: 0.95rem; /* Lebih kecil */
+    max-width: 600px; /* Lebih sempit */
+    margin: 0 auto 25px; /* Margin lebih kecil */
+    line-height: 1.6;
 }
 
 .contact-email {
-    margin: 30px 0;
+    margin: 20px 0; /* Margin lebih kecil */
 }
 
 .email-link {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(26, 26, 26, 0.8);
+    gap: 8px; /* Gap lebih kecil */
+    background: rgba(26, 26, 26, 0.9);
     color: var(--text-white);
-    padding: 15px 30px;
-    border-radius: 25px;
+    padding: 12px 25px; /* Padding lebih kecil */
+    border-radius: 20px; /* Radius lebih kecil */
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 0.9rem; /* Lebih kecil */
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 46, 46, 0.2);
 }
@@ -801,20 +821,22 @@ body {
 .email-link:hover {
     background: rgba(255, 46, 46, 0.1);
     border-color: var(--accent-red);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-red);
+    transform: translateY(-2px); /* Efek hover lebih kecil */
+    box-shadow: 0 6px 15px rgba(255, 46, 46, 0.3);
 }
 
 .email-link i {
     color: var(--accent-red);
+    font-size: 0.9rem; /* Lebih kecil */
 }
 
 .copyright {
     color: var(--text-light-gray);
-    font-size: 14px;
-    margin-top: 40px;
-    padding-top: 20px;
+    font-size: 0.8rem; /* Lebih kecil */
+    margin-top: 25px; /* Margin lebih kecil */
+    padding-top: 15px; /* Padding lebih kecil */
     border-top: 1px solid rgba(255, 46, 46, 0.1);
+    line-height: 1.5;
 }
 
 .copyright strong {
@@ -823,11 +845,12 @@ body {
 
 .copyright .fa-heart {
     color: var(--accent-red);
+    font-size: 0.8rem; /* Lebih kecil */
 }
 
-/* Scrollbar */
+/* Scrollbar - Lebih Tipis */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px; /* Lebih tipis */
 }
 
 ::-webkit-scrollbar-track {
@@ -836,118 +859,195 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--accent-red);
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--neon-red);
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* Responsive Design - Dioptimalkan untuk Mobile */
+@media (max-width: 768px) {
+    html {
+        font-size: 13px; /* Lebih kecil di mobile */
+    }
+    
+    body {
+        padding-top: 60px; /* Sesuaikan dengan tinggi header mobile */
+    }
+    
+    .main-header {
+        height: 55px; /* Lebih pendek di mobile */
+        padding: 10px 0;
+    }
+    
+    .header-container {
+        padding: 0 15px; /* Padding lebih kecil */
+    }
+    
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .visitor-counter {
+        padding: 6px 12px;
+        height: 36px;
+    }
+    
+    .counter-value {
+        font-size: 1rem;
+    }
+    
+    .counter-label {
+        font-size: 0.65rem;
+    }
+    
     .hero-title {
-        font-size: 56px;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
     }
     
-    .story-container {
-        max-width: 900px;
-    }
-}
-
-@media (max-width: 992px) {
-    .header-container,
-    .hero-section,
-    .story-selection,
-    .contact-section {
-        padding: 0 30px;
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
     }
     
-    .hero-title {
-        font-size: 48px;
+    .story-card {
+        padding: 25px 20px;
     }
     
-    .story-main-title {
-        font-size: 36px;
+    .story-card-title {
+        font-size: 1.5rem;
     }
     
-    .story-card,
-    .contact-container {
-        padding: 40px 30px;
+    .selection-title,
+    .contact-title {
+        font-size: 1.5rem;
     }
     
     .contact-cards {
-        gap: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 40px;
-    }
-    
-    .hero-section {
-        padding: 60px 20px;
-    }
-    
-    .story-card-title,
-    .contact-card-title {
-        font-size: 30px;
-    }
-    
-    .story-container {
-        padding: 30px 20px;
-    }
-    
-    .story-meta {
-        flex-direction: column;
         gap: 15px;
-    }
-    
-    .chapter-title {
-        font-size: 24px;
-    }
-    
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
     }
     
     .contact-card {
         min-width: 100%;
+        padding: 20px 15px;
+    }
+    
+    .story-container {
+        padding: 20px 15px;
+        margin: 0 10px;
+    }
+    
+    .story-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .story-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .chapter-title {
+        font-size: 1.3rem;
+    }
+    
+    .back-to-top {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .main-footer {
+        padding: 30px 15px;
+    }
+    
+    .footer-logo {
+        font-size: 1.5rem;
+    }
+    
+    .email-link {
+        padding: 10px 20px;
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
+    html {
+        font-size: 12px; /* Lebih kecil untuk device sangat kecil */
+    }
+    
     .hero-title {
-        font-size: 32px;
+        font-size: 1.8rem;
     }
     
-    .story-card,
-    .contact-card {
-        padding: 30px 20px;
+    .story-card {
+        padding: 20px 15px;
     }
     
-    .story-card-title {
-        font-size: 26px;
+    .story-icon {
+        font-size: 2rem;
     }
     
     .read-story-btn,
     .contact-btn {
-        padding: 12px 30px;
-        font-size: 15px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
     }
     
-    .story-main-title {
-        font-size: 28px;
+    .contact-container {
+        padding: 30px 20px;
     }
     
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
+    .story-content {
+        font-size: 0.9rem;
+    }
+    
+    .dialogue {
+        margin-left: 10px;
+        padding: 12px;
+    }
+    
+    .highlight {
         padding: 15px;
     }
-    
-    .logo-text {
-        font-size: 20px;
+}
+
+/* Utility untuk tampilan lebih kompak */
+@media (max-height: 700px) and (orientation: landscape) {
+    .hero-section {
+        padding: 20px 15px 15px;
     }
+    
+    .story-selection {
+        margin: 0 auto 30px;
+    }
+    
+    .contact-section {
+        margin: 0 auto 40px;
+    }
+}
+
+/* Pastikan semua konten terlihat dalam satu layar */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Jarak antar section lebih kecil */
+}
+
+/* Animasi fade in untuk semua section */
+.hero-section,
+.story-selection,
+.contact-section {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
 }
